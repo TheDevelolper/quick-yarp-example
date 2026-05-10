@@ -1,0 +1,8 @@
+@yarp_HostAddress = https://localhost:5001
+
+### Hit the proxy (round-robin alternates between weather1 and weather2)
+# weather1 only returns "Freezing", weather2 returns all including "Sweltering"
+# Send this a few times to see both backends respond
+
+GET {{yarp_HostAddress}}/weatherforecast/
+Accept: application/json
