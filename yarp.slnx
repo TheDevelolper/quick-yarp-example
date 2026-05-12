@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="example-api/example-api.csproj" />
   <Project Path="weather1/weather1.csproj" />
   <Project Path="weather2/weather2.csproj" />
   <Project Path="yarp/yarp.csproj" />

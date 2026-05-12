@@ -4,5 +4,5 @@
 # weather1 only returns "Freezing", weather2 returns all including "Sweltering"
 # Send this a few times to see both backends respond
 
-GET {{yarp_HostAddress}}/weatherforecast/
+GET {{yarp_HostAddress}}/data/
 Accept: application/json

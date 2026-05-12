@@ -1,18 +1,17 @@
 # quick-yarp-example
 
-A .NET Aspire sample demonstrating YARP (Yet Another Reverse Proxy) with round-robin load balancing across two weather API backends.
+A .NET Aspire sample demonstrating YARP (Yet Another Reverse Proxy) with round-robin load balancing across 10 identical API instances.
 
 ## Projects
 
-- **weather1** — returns "Freezing" only (tests that traffic reaches this instance)
-- **weather2** — returns the full set including "Sweltering" (tests that traffic reaches this instance too)
-- **yarp** — reverse proxy using round-robin to distribute requests between weather1 and weather2
+- **example-api** — a simple API that returns its instance ID (injected via `INSTANCE_ID` env var) at the `/data/` endpoint
+- **yarp** — reverse proxy using round-robin to distribute requests across all 10 API instances
 
-Since one backend only ever returns "Freezing" while the other returns all summaries, you can verify round-robin distribution by hitting the proxy multiple times and observing the changing summaries.
+The Aspire orchestration launches 10 instances of `example-api` on ports 7700-7709, each with a unique `INSTANCE_ID` (0-9). Hitting the proxy's `/data/` endpoint returns a different instance ID on each request, confirming round-robin distribution.
 
 ## Getting Started
 
-1. Start the Aspire app (launches all three projects + dashboard):
+1. Start the Aspire app (launches all projects + dashboard):
 
    ```shell
    dotnet run --project aspire

@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\weather1\weather1.csproj" />
-    <ProjectReference Include="..\weather2\weather2.csproj" />
+    <ProjectReference Include="..\example-api\example-api.csproj" />
+
     <ProjectReference Include="..\yarp\yarp.csproj" />
   </ItemGroup>
 
